@@ -11,5 +11,15 @@ pipeline {
                 sh 'mvn clean package install'
             }
         }
+        stage('Deploy') {
+            steps {
+                def tc9 = tomcat9( 
+                    url:        'http://192.168.0.100:8088',
+                    password:   'cattom', 
+                    userName:   'tomcat'
+                )
+                deploy(container: tc9, war: '**/*.war', contextPath: '/helloworld')                
+            }
+        }        
     }
 }
