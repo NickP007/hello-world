@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                deploy adapters: [tomcat9(credentialsId: '0d8b3ad0-e6d1-49d5-b36f-569619f72c10', path: '/hwd', url: "http://192.168.0.100:8088")], war: '**/*.war', contextPath: '/webapp/helloworld2' 
+                deploy adapters: [tomcat9(credentialsId: '0d8b3ad0-e6d1-49d5-b36f-569619f72c10', path: '', url: "http://192.168.0.100:8088")], war: '**/*.war', contextPath: '/webapp/helloworld2' 
             }
         }        
     }
