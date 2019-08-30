@@ -18,7 +18,7 @@ pipeline {
                     password:   'cattom', 
                     userName:   'tomcat'
                 )
-                deploy(adapter: tc9, war: '**/*.war', contextPath: '/helloworld')                
+                deploy(adapters: tc9, war: '**/*.war', contextPath: '/helloworld')                
             }
         }        
     }
