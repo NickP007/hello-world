@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sshPublisher publishers: [configName: 'ansible_server', transfers: [sourceFiles: '**/*.war', remoteDirectory: '//opt/playbooks']]
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible_server', transfers: [sshTransfer(sourceFiles: '**/*.war', remoteDirectory: '//opt/playbooks')])])
             }
         }        
     }
