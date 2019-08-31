@@ -14,6 +14,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible_server', transfers: [sshTransfer(sourceFiles: '**/*.war', remoteDirectory: '//opt/playbooks')])])
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible_server', transfers: [sshTransfer(execCommand: 'ansible-playbook /opt/playbooks/copyfile.yml')])])
             }
         }        
     }
